@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101b32">
+  <meta name="description" content="Gestión de iniciativas, automatizaciones, gobierno y KPIs">
+  <title>Indicadores | Oficina de Automatización</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div id="login" class="login-screen" hidden>
+    <div class="login-panel">
+      <div class="brandmark">◎</div>
+      <p class="eyebrow">PLATAFORMA CORPORATIVA</p>
+      <h1>Indicadores<span class="accent">.</span></h1>
+      <p class="muted">Gobierno de automatizaciones, gestión de proyectos y resultados en un solo lugar.</p>
+      <form id="login-form">
+        <label for="login-user">Usuario</label><input id="login-user" name="username" autocomplete="username" required autofocus>
+        <label for="login-password">Contraseña</label><input id="login-password" type="password" name="password" autocomplete="current-password" required>
+        <button type="submit" class="btn primary full">Iniciar sesión</button>
+        <p id="login-error" class="error" role="alert"></p>
+      </form>
+      <small>Acceso controlado · Sesión protegida</small>
+    </div>
+    <div class="login-art"><div class="orb"></div><p>Transformar procesos.<br>Medir el impacto.</p></div>
+  </div>
+  <div id="app" class="shell" hidden>
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-head"><span class="brandmark small">◎</span><span><strong>Indicadores</strong><small>Automation Office</small></span></div>
+      <p class="nav-category">PANORAMA</p>
+      <nav class="nav" aria-label="Menú principal">
+        <button data-view="dashboard" class="active"><span>▦</span> Resumen ejecutivo</button>
+        <button data-view="onepage"><span>◫</span> Mi OnePage</button>
+        <p class="nav-category">GESTIÓN</p>
+        <button data-view="requests"><span>◈</span> Solicitudes</button>
+        <button data-view="projects"><span>▤</span> Proyectos</button>
+        <button data-view="tasks"><span>☷</span> Tareas y entregables</button>
+        <button data-view="assets"><span>⬡</span> Inventario de activos</button>
+        <button data-view="approvals"><span>✓</span> Riesgo y autorizaciones</button>
+        <p class="nav-category">OPERACIÓN</p>
+        <button data-view="executions"><span>↻</span> Ejecuciones</button>
+        <button data-view="incidents"><span>⚑</span> Incidencias</button>
+        <button data-view="documents"><span>▣</span> Documentación</button>
+        <p class="nav-category">ADMINISTRACIÓN</p>
+        <button data-view="companies"><span>▥</span> Empresas</button>
+        <button data-view="users" data-admin-only><span>♙</span> Usuarios</button>
+        <button data-view="audit" data-audit-only><span>◉</span> Auditoría</button>
+      </nav>
+      <div class="sidebar-footer"><div class="status-dot"></div><span>Entorno PoC · v1.0</span></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <button class="icon-btn mobile-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+        <div class="breadcrumb"><span>OFICINA DE AUTOMATIZACIÓN</span><strong id="page-title">Resumen ejecutivo</strong></div>
+        <div class="top-actions"><span class="pill">● Plataforma activa</span><span id="user-role" class="role-label"></span><span id="user-name" class="avatar"></span><button id="logout" class="text-button" title="Cerrar sesión">Salir</button></div>
+      </header>
+      <main id="content" class="content" tabindex="-1"></main>
+    </div>
+  </div>
+  <dialog id="modal" class="modal"><div id="modal-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+</body>
+</html>
