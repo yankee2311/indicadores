@@ -1,0 +1,23 @@
+name: CI - Indicadores
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, "feat/**"]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - name: Comprobar sintaxis de backend y frontend
+        run: |
+          node --check server.js
+          node --check public/app.js
+      - name: Ejecutar pruebas de integración
+        run: npm test
